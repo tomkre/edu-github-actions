@@ -1,3 +1,3 @@
-Repo for practising github actions.
+Repo for practising Github Actions.
 
 [![Master](https://github.com/tomkre/edu-github-actions/actions/workflows/main.yml/badge.svg)](https://github.com/tomkre/edu-github-actions/actions/workflows/main.yml)
