@@ -2,8 +2,9 @@ name: Master
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
   job_one:
@@ -16,7 +17,7 @@ jobs:
   job_two:
     runs-on: ubuntu-latest
     steps:
-      - name: Greet author
+      - name: Greet Author
         run: echo 'Hello, Tom!'
 
 
