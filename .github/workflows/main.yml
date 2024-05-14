@@ -1,4 +1,4 @@
-name: Master workflow
+name: Master
 
 on:
   push:
@@ -6,13 +6,17 @@ on:
       - main
 
 jobs:
-  greet:
+  job_one:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: List files
         run: ls
+  job_two:
+    runs-on: ubuntu-latest
+    steps:
       - name: Greet Author
         run: echo 'Hello, Tom!'
+
 
