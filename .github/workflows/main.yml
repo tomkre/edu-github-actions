@@ -1,4 +1,4 @@
-name: Master
+name: Master workflow
 
 on:
   push:
@@ -7,17 +7,11 @@ on:
     branches: [main]
 
 jobs:
-  job_one:
-    runs-on: ubuntu-latest
+  master_job:
+    runs-on: self-hosted
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-      - name: List files
-        run: ls
-  job_two:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Greet Author
-        run: echo 'Hello, Tom!'
+      - name: List home directory contents
+        run: ls /home/ec2-user
+
 
 
