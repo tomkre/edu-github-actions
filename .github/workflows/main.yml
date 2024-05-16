@@ -8,8 +8,10 @@ on:
 
 jobs:
   master_job:
-    runs-on: [ubuntu-latest, ubuntu-22.04]
+    runs-on: [ubuntu-latest]
     steps:
       - uses: actions/checkout@v4
       - name: List repository contents
         run: ls
+      - name: Check version of ubuntu
+        run: lsb_release -a
