@@ -14,4 +14,4 @@ jobs:
       - name: List home directory contents
         run: ls /home/ec2-user
       - name: Create a file in home directory
-        run: echo 'tomkre' > /home/ec2-user/author.txt
+        run: echo 'tomkre' > /home/ec2-user/author2.txt
