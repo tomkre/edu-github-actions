@@ -8,10 +8,8 @@ on:
 
 jobs:
   master_job:
-    runs-on: [ubuntu-22.04]
+    runs-on: [self-hosted, master-one]
     steps:
       - uses: actions/checkout@v4
-      - name: List repository contents
-        run: ls
-      - name: Check version of ubuntu
-        run: lsb_release -a
+      - name: List home directory contents
+        run: ls /home/ec2-user
