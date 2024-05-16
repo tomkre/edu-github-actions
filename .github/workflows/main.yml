@@ -8,7 +8,8 @@ on:
 
 jobs:
   master_job:
-    runs-on: self-hosted
+    runs-on: [ubuntu-latest, ubuntu-22.04]
     steps:
-      - name: List home directory contents
-        run: ls /home/ec2-user
+      - uses: actions/checkout@v4
+      - name: List repository contents
+        run: ls
