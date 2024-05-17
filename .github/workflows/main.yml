@@ -14,4 +14,4 @@ jobs:
       - name: List repository contents
         run: ls
       - name: Print author
-        run: echo "${{ github.actor }}"
+        run: echo I am ${{ github.actor }}
