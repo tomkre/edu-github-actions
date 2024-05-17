@@ -4,26 +4,11 @@ on:
   push:
     branches: [main]
 
-defaults:
-  run:
-    working-directory: foo
-
 jobs:
   master_job_one:
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: python
-    steps:
-      - name: Say hello
-        run: print('Hello, Tom!')
-  master_job_two:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: workdir
     steps:
       - name: pwd
         run: pwd
-      - name: Say hello
-        run: print('Hello, Tom!')
+      - name: ls
+        run: ls
