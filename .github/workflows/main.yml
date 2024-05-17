@@ -4,13 +4,31 @@ on:
   push:
     branches: [main]
 
+defaults:
+  run:
+    working-directory: foo
+
 jobs:
-  master_job:
+  master_job_one:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: python
+    steps:
+      - name: pwd
+        run: pwd
+      - name: Say hello
+        run: print('Hello, Tom!')
+  master_job_two:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: bar
+    steps:
+      - name: pwd
+        run: pwd
+  master_job_three:
     runs-on: ubuntu-latest
     steps:
-      - name: Print on linux
-        if: runner.os != 'Windows'
-        run: echo "The runner's operating system is $RUNNER_OS."
-      - name: Print on windows
-        if: runner.os == 'Windows'
-        run: echo "The runner's operating system is WINDOWS_"
+      - name: Say hello
+        run: print('Hello, Tom!')
