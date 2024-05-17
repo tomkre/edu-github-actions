@@ -1,4 +1,4 @@
-name: Master workflow
+name: Master workflow by @${{ github.actor }}
 
 on:
   push:
@@ -8,10 +8,8 @@ on:
 
 jobs:
   master_job:
-    runs-on: [self-hosted, master-one]
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: List home directory contents
-        run: ls /home/ec2-user
-      - name: Create a file in home directory
-        run: echo 'tomkre' > /home/ec2-user/author4.txt
+      - name: List repository contents
+        run: ls
