@@ -6,10 +6,22 @@ on:
   pull_request:
     branches: [main]
 
+env:
+  W: tkr-w
+
 jobs:
   master_job:
     runs-on: ubuntu-latest
+    env:
+      J: tkr-j
     steps:
       - uses: actions/checkout@v4
       - name: List repository contents
         run: ls
+      - name: Print variables
+        env:
+          S: tkr-s
+        run: |
+          echo ${{ env.W }}
+          echo ${{ env.J }}
+          echo ${{ env.S }}
