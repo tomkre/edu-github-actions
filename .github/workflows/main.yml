@@ -1,4 +1,4 @@
-name: "Master workflow by @ ${{ github.actor }}"
+name: Master workflow by @ "${{ github.actor }}"
 
 on:
   push:
