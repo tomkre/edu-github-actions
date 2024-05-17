@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Print on linux
         if: runner.os != 'Windows'
-        run: echo "The runner's operating system is $RUNNER_ID."
+        run: echo "The runner's operating system is $RUNNER_OS."
       - name: Print on windows
         if: runner.os == 'Windows'
         run: echo "The runner's operating system is WINDOWS_"
