@@ -8,5 +8,9 @@ jobs:
   master_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print run url via context vars
-        run: echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+      - name: Print on linux
+        if: runner.os != 'Windows'
+        run: echo "The runner's operating system is $RUNNER_ID."
+      - name: Print on windows
+        if: runner.os == 'Windows'
+        run: echo "The runner's operating system is WINDOWS_"
