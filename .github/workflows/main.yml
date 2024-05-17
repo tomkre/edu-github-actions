@@ -8,5 +8,5 @@ jobs:
   master_job:
     runs-on: ubuntu-latest
     steps:
-      - name: Print run url
-        run: echo $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID
+      - name: Print run url via context vars
+        run: echo ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
