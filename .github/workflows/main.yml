@@ -1,4 +1,4 @@
-name: Master workflow by @ "${{ github.actor }}"
+name: Master workflow
 
 on:
   push:
@@ -13,3 +13,5 @@ jobs:
       - uses: actions/checkout@v4
       - name: List repository contents
         run: ls
+      - name: Print author
+        run: echo "${{ github.actor }}"
