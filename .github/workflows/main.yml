@@ -21,12 +21,9 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: bar
+        working-directory: workdir
     steps:
       - name: pwd
         run: pwd
-  master_job_three:
-    runs-on: ubuntu-latest
-    steps:
       - name: Say hello
         run: print('Hello, Tom!')
