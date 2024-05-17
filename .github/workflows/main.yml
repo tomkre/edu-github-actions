@@ -7,8 +7,10 @@ on:
 jobs:
   master_job_one:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: /home/runner/work/edu-github-actions
     steps:
-      - uses: actions/checkout@v4
       - name: pwd
         run: pwd
       - name: ls
