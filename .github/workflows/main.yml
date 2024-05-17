@@ -21,7 +21,9 @@ jobs:
       - name: Print variables
         env:
           S: tkr-s
+          TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           echo ${{ env.W }}
           echo ${{ env.J }}
           echo ${{ env.S }}
+          echo ${{ env.TOKEN }}
