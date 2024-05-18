@@ -13,7 +13,7 @@ jobs:
     permissions:
       issues: write
     steps:
-      - name: Create issues using REST API
+      - name: Create an issue using REST API
         run: |
           curl --request POST \
           --url https://api.github.com/repos/${{ github.repository }}/issues \
