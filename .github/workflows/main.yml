@@ -11,10 +11,10 @@ jobs:
   master:
     runs-on: ubuntu-latest
     permissions:
-      contents: none
+      contents: read
     steps:
       - uses: actions/checkout@v4
+      - name: create new file
+        run: echo 'cnt' > file-from-wf.txt
       - name: List repository contents
         run: ls
-      - name: Get content of author.txt
-        run: cat author.txt
