@@ -11,7 +11,7 @@ jobs:
   master:
     runs-on: ubuntu-latest
     permissions:
-      issues: read
+      issues: write
     steps:
       - name: Create issues using REST API
         run: |
