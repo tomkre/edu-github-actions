@@ -8,9 +8,11 @@ env:
   AUTHOR: ${{ vars.AUTHOR }}
 
 jobs:
-  print_author:
+  master:
     runs-on: ubuntu-latest
+    permissions:
+      contents: none
     steps:
-      - name: Print Author
-        run: |
-          echo ${{ env.AUTHOR }}
+      - uses: actions/checkout@v4
+      - name: List repository contents
+        run: ls
