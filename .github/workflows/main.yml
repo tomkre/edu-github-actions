@@ -11,10 +11,16 @@ jobs:
   master:
     runs-on: ubuntu-latest
     permissions:
-      contents: read
+      issues: read
     steps:
-      - uses: actions/checkout@v4
-      - name: create new file
-        run: echo 'cnt' > file-from-wf.txt
-      - name: List repository contents
-        run: ls
+      - name: Create issues using REST API
+        run: |
+          curl --request POST \
+          --url https://api.github.com/repos/${{ github.repository }}/issues \
+          --header 'authorization: Bearer ${{ secrets.GITHUB_TOKEN }}' \
+          --header 'content-type: application/json'
+          --data '{
+            "title": "Issue from WF",
+            "body": "This issue was create from WF by ${{ env.AUTHOR }}"
+          }' \
+          --fail
