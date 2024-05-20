@@ -23,7 +23,7 @@ jobs:
       - name: Upload artifacts
         uses: actions/upload-artifact@v4
         with:
-          name: archive.zip
+          name: app.jar
           path: build/libs
   deploy-dev:
     if: github.ref == 'refs/heads/dev'
@@ -36,7 +36,7 @@ jobs:
       - name: Download candidate artifacts
         uses: actions/download-artifact@v4
         with:
-          name: archive.zip
+          name: app.jar
       - name: release to dev
         uses: softprops/action-gh-release@v2
         with:
@@ -57,7 +57,7 @@ jobs:
       - name: Download candidate artifacts
         uses: actions/download-artifact@v4
         with:
-          name: archive.zip
+          name: app.jar
       - name: GH release
         uses: softprops/action-gh-release@v2
         with:
