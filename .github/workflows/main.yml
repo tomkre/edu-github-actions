@@ -45,7 +45,7 @@ jobs:
           prerelease: true
           draft: true
           name: dev
-          files: greetings-deploy.jar
+          files: app.jar
   deploy-prod:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
@@ -65,4 +65,4 @@ jobs:
           token: ${{ secrets.PROD_TOKEN }}
           generate_release_notes: true
           name: Production
-          files: greetings-deploy.jar
+          files: app.jar
