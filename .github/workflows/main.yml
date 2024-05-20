@@ -64,5 +64,5 @@ jobs:
           tag_name: v${{ vars.PROD_VERSION }}
           token: ${{ secrets.PROD_TOKEN }}
           generate_release_notes: true
-          name: Production
+          name: Production 1.0.1
           files: app.jar
