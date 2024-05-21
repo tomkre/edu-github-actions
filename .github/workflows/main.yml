@@ -19,6 +19,11 @@ on:
         required: true
 
 jobs:
+  say_hello:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Say Hello
+        run: echo 'Hello, Tom!'
   create_issue_on_failure:
     runs-on: ubuntu-latest
     permissions:
