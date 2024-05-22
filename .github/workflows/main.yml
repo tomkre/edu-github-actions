@@ -3,15 +3,20 @@ run-name: Master workflow run by @${{ github.actor }}
 on:
   push:
     branches: [main]
+  pull_request:
+    branches: [main]
 
 jobs:
-  setup:
+  build:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout repo
-        uses: actions/checkout@v4
-      - name: Conventional Changelog Action
-        id: changelog
-        uses: TriPSs/conventional-changelog-action@v5
-      - name: Get changelog version
-        run: echo 'Changelog version - ${{ steps.changelog.outputs.version }}'
+      - uses: actions/checkout@v4
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: 21
+      - name: Grant execute permission for gradlew
+        run: chmod +x gradlew
+      - name: Build with Gradle
+        run: ./gradlew build
+
