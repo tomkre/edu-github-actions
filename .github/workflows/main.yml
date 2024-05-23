@@ -24,6 +24,6 @@ jobs:
             ${{ runner.os }}-
       - name: Check for cache hit
         run: |
-          echo "Cache hit output: '${{ steps.cache-master.outputs }}'"
+          echo "Cache hit output: '${{ steps.cache-master.outputs.cache-hit }}'"
             
 
