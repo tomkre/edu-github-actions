@@ -14,16 +14,18 @@ jobs:
       - id: cache-master
         env:
           cache-name: master-cache
+          ACTIONS_STEP_DEBUG: true
         uses: actions/cache@v4
         with:
           path: ~/.master-data/master-output
-          key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/.master-data/master-output') }}"
+          key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/master-output') }}"
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - name: Check for cache hit
+      - if: ${{ steps.cache-master.outputs.cache-hit == 'true' }}
+        name: Check for cache hit
         run: |
-          echo "Cache hit output: '${{ steps.cache-master.outputs.cache-hit }}'"
+          echo "Got cache hit on key"
             
 
