@@ -26,6 +26,6 @@ jobs:
       - if: ${{ steps.cache-master.outputs.cache-hit == 'true' }}
         name: Check for cache hit
         run: |
-          echo "Got cache hit on key2"
+          echo "Got cache hit on key3"
             
 
