@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: '~/.master-data'
-          key: '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/.master-data/master-output') }}'
+          key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/.master-data/master-output') }}"
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}
             ${{ runner.os }}-build
