@@ -14,6 +14,12 @@ java {
     sourceCompatibility = 21
 }
 
+jar {
+    manifest {
+        attributes('Main-Class': 'cz.tomkre.edu.githubactions.MasterApplication')
+    }
+}
+
 application {
     mainClass = 'cz.tomkre.edu.githubactions.MasterApplication'
 }
