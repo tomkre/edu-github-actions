@@ -10,15 +10,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - run: mkdir ~/.master-data && echo 'master output data' > ~/.master-data/master-output
+      - run: mkdir ~/.master-data && echo 'master output data' > ~/.master-data/master-outputx
       - id: cache-master
         env:
           cache-name: master-cache
           ACTIONS_STEP_DEBUG: true
         uses: actions/cache@v4
         with:
-          path: ~/.master-data/master-output
-          key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/master-output') }}"
+          path: ~/.master-data/master-outputx
+          key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/master-outputx') }}"
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
