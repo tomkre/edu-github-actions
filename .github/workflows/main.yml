@@ -22,8 +22,8 @@ jobs:
             ${{ runner.os }}-build-${{ env.cache-name }}-
             ${{ runner.os }}-build-
             ${{ runner.os }}-
-      - if: ${{ steps.cache-master.outputs.cache-hit == 'true' }}
-        name: Check for cache hit
-        run: echo 'Got cache hit on key'
+      - name: Check for cache hit
+        run: |
+          echo "Cache hit: [${{ steps.cache-master.outputs.cache-hit }}]"
             
 
