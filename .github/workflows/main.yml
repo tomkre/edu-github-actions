@@ -12,12 +12,11 @@ jobs:
     steps:
       - run: echo 'master output data' > ~/.master-data/master-output
       - id: cache-master
-        uses: actions/checkout@v4
         env:
           cache-name: master-cache
-          ACTION_STEP_DEBUG: true
+        uses: actions/checkout@v4
         with:
-          path: ~/.master-data
+          path: '~/.master-data'
           key: '${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('~/.master-data/master-output') }}'
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}
