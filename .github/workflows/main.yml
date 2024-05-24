@@ -1,28 +1,13 @@
 run-name: Master workflow run by @${{ github.actor }}
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  issues:
 
 jobs:
-  build:
-    name: build 2
+  notify-for-issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out repository
-        uses: actions/checkout@v4
-      - name: Set up JDK
-        uses: actions/setup-java@v4
-        with:
-          java-version: 21
-          distribution: temurin
-      - name: Set up Gradle
-        uses: gradle/actions/setup-gradle@v3
-      - name: Build project
-        run: ./gradlew build
-      - name: Run tests
-        run: ./gradlew test
+      - name: Display notification
+        run: echo 'Something happened with an issue'
             
 
