@@ -17,7 +17,6 @@ jobs:
       - id: cache-master
         env:
           cache-name: master-cache
-          ACTIONS_STEP_DEBUG: true
         uses: actions/cache@v4
         with:
           path: ${{ env.file-to-cache }}
