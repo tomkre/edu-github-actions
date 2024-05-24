@@ -9,15 +9,18 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    env:
+      file-to-cache: ~/.master-data/master-output-001
     steps:
-      - run: mkdir ~/.master-data && echo 'master output data' > ~/.master-data/master-output-java
+      - uses: actions/checkout@v4
+      - run: mkdir ~/.master-data && echo 'master output data' > ${{ env.file-to-cache }}
       - id: cache-master
         env:
           cache-name: master-cache
           ACTIONS_STEP_DEBUG: true
         uses: actions/cache@v4
         with:
-          path: ~/.master-data/master-output-java
+          path: ${{ env.file-to-cache }}
           key: "${{ runner.os }}-build-${{ env.cache-name }}-${{ hashFiles('**/*.java') }}"
           restore-keys: |
             ${{ runner.os }}-build-${{ env.cache-name }}-
