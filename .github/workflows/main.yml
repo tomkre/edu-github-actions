@@ -9,8 +9,6 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
-    env:
-      file-to-cache: ~/.master-data/master-output-001
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-java@v4
