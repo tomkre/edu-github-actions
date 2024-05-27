@@ -8,6 +8,6 @@ jobs:
   notify-for-issue:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'An issue was opened'
+      - run: echo 'An issue was opened, edited or closed'
             
 
