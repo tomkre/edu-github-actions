@@ -2,7 +2,7 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   issues:
-    types: [opened]
+    types: [opened, edited, closed]
 
 jobs:
   notify-for-issue:
