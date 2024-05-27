@@ -2,12 +2,12 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   issues:
+    types: [opened]
 
 jobs:
   notify-for-issue:
     runs-on: ubuntu-latest
     steps:
-      - name: Display notification
-        run: echo 'Something happened with an issue'
+      - run: echo 'An issue was opened'
             
 
