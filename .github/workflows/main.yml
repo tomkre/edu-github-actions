@@ -2,8 +2,8 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    paths-ignore:
-      - .github/workflows/ignore.yml
+    branches-ignore:
+      - ignore
 
 jobs:
   handle:
