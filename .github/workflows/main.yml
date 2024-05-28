@@ -1,13 +1,14 @@
 run-name: Master workflow run by @${{ github.actor }}
 
 on:
-  issues:
-    types: [opened, edited, closed]
+  push:
+    branches:
+      - ma*n
 
 jobs:
   notify-for-issue:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'An issue was opened, edited or closed'
+      - run: echo 'An action triggered by glob pattern'
             
 
