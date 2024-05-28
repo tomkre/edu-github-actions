@@ -2,11 +2,11 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    branches:
-      - ma*n
+    branches-ignore:
+      - test
 
 jobs:
-  notify-for-issue:
+  handle:
     runs-on: ubuntu-latest
     steps:
       - run: echo 'An action triggered by glob pattern'
