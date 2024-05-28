@@ -2,8 +2,8 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    branches-ignore:
-      - test
+    tags:
+      - v1
 
 jobs:
   handle:
