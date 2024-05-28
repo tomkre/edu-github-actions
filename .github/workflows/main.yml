@@ -2,8 +2,8 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    tags:
-      - v1
+    paths:
+      - .github/workflows/main.yml
 
 jobs:
   handle:
