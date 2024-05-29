@@ -4,7 +4,7 @@ on:
   push:
     paths:
       - '.github/workflows/**'
-      - '.github/workflows/main.yml.bak'
+      - '!.github/workflows/main.yml.bak'
 
 jobs:
   handle:
