@@ -20,7 +20,7 @@ jobs:
               "title": "Automated workflow failure issue for commit ${{ github.sha }}",
               "body": "This issue was automatically created by the GitHub Action workflow ** ${{ github.workflow }} **"
             }
-          }
+          } \
           "https://api.github.com/repos/${{ github.repository }}/actions/workflows/create-faiure-issue.yml/dispatches"
             
 
