@@ -3,9 +3,8 @@ run-name: Master workflow run by @${{ github.actor }}
 on:
   push:
     branches:
-      - main
-    tags:
-      - rc*
+      - 'rel/**'
+      - '!rel/**-beta'
 
 jobs:
   handle:
