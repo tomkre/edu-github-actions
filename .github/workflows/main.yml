@@ -10,6 +10,17 @@ jobs:
   handle:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'An action triggered by glob pattern'
+      - run: |
+          curl -X POST \
+          -H 'Authorization: Bearer ${{ secrets.WORKFLOW_USE }}' \
+          -H 'Accept: application/vnd.github.v3+json' \
+          -d {
+            "ref": "main",
+            "inputs": {
+              "title": "Automated workflow failure issue for commit ${{ github.sha }}",
+              "body": "This issue was automatically created by the GitHub Action workflow ** ${{ github.workflow }} **"
+            }
+          }
+          "https://api.github.com/repos/${{ github.repository }}/actions/workflows/create-faiure-issue.yml/dispatches"
             
 
