@@ -2,9 +2,9 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    branches:
-      - 'rel/**'
-      - '!rel/**-beta'
+    paths:
+      - .github/workflows/**
+      - .github/workflows/main.yml.bak
 
 jobs:
   handle:
