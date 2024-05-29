@@ -2,9 +2,8 @@ run-name: Master workflow run by @${{ github.actor }}
 
 on:
   push:
-    paths:
-      - '.github/workflows/**'
-      - '!.github/workflows/main.yml.bak'
+    branches:
+      - main
 
 jobs:
   test-run:
@@ -16,6 +15,8 @@ jobs:
     steps:
       - run: exit 1
   create-issue-on-failure:
+    permissions:
+      issues: write
     needs: [test-run, count-args]
     if: always() && failure()
     uses: ./.github/workflows/create-failure-issue.yml
