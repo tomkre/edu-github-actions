@@ -12,7 +12,7 @@ jobs:
     steps:
       - run: |
           curl -X POST \
-          -H 'Authorization: Bearer ${{ secrets.WORKFLOW_USE }}' \
+          -H 'Authorization: Bearer ${{ secrets.WF }}' \
           -H 'Accept: application/vnd.github.v3+json' \
           -d '{
             "ref": "main",
