@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - 'rel/**'
-      - '!rel/**-beta'
+      - '!rel/**-betax'
 
 jobs:
   handle:
