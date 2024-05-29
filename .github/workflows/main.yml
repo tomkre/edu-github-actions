@@ -3,8 +3,8 @@ run-name: Master workflow run by @${{ github.actor }}
 on:
   push:
     paths:
-      - .github/workflows/**
-      - .github/workflows/main.yml.bak
+      - '.github/workflows/**'
+      - '.github/workflows/main.yml.bak'
 
 jobs:
   handle:
