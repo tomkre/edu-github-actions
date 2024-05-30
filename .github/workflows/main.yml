@@ -8,12 +8,14 @@ on:
 jobs:
   one:
     runs-on: ubuntu-latest
-    concurrency: master
+    concurrency:
+      group: master
+      cancel-in-progress: true
     steps:
       - name: First step
         run: |
           echo 'Starting job (by ${{ github.ref }}) and sleep for few seconds'
           sleep 10
-          echo 'Finishing job3'
+          echo 'Finishing job1'
             
 
