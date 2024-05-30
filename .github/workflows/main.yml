@@ -2,20 +2,21 @@ name: Main
 
 on:
   push:
-    branches:
-      - main
-      - 'rel/**'
+
 jobs:
   job_one:
+    strategy:
+      matrix:
+        be: [spring_boot, quarkus]
+        fe: [angular, react]
+    uses: ./.github/workflows/sw_project.yml
+    with:
+      be: ${{ matrix.be }}
+      fe: ${{ matrix.fe }}
+  job_two:
     runs-on: ubuntu-latest
-    concurrency:
-      group: ${{ github.head_ref || github.ref }}
-      cancel-in-progress: true
+    needs: [job_one]
     steps:
-      - name: step_one
+      - name: Step one in job_two
         run: |
-          echo 'Running step_one of job_one'
-          echo 'github.head_ref: ${{ github.head_ref }}'
-          echo 'github.ref: ${{ github.ref }}'
-            
-
+          echo 'Result: ${{ needs.job_one.outputs.result }}'
