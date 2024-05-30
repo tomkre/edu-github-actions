@@ -4,7 +4,11 @@ on:
   push:
     branches:
       - main
-      - 'rel/**'
+      - feature/*
+  pull_request:
+    branches:
+      - main
+      - feature/*
 jobs:
   job_one:
     runs-on: ubuntu-latest
@@ -14,7 +18,7 @@ jobs:
     steps:
       - name: step_one
         run: |
-          echo 'Running step_one of job_one'
+          echo 'Running step_one of job_one in feature/one'
           echo 'github.head_ref: ${{ github.head_ref }}'
           echo 'github.ref: ${{ github.ref }}'
             
