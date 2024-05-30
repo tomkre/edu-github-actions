@@ -1,44 +1,15 @@
-run-name: Master workflow run by @${{ github.actor }}
+name: Main
 
 on:
   push:
     branches:
       - main
+      - 'rel/**'
 
 jobs:
-  test-run:
+  one:
     runs-on: ubuntu-latest
     steps:
-      - run: exit 0
-  count-args:
-    runs-on: ubuntu-latest
-    steps:
-      - run: exit 1
-  create-issue-on-failure:
-    permissions:
-      issues: write
-    needs: [test-run, count-args]
-    if: always() && failure()
-    uses: ./.github/workflows/create-failure-issue.yml
-    with:
-      title: "Automated workflow failure issue for commit ${{ github.sha }}"
-      body: "This issue was automatically created by the GitHub Action workflow ** ${{ github.workflow }} **"
-#  handle:
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: fail
-#        run: exit 1
-#      - run: |
-#          curl -X POST \
-#          -H 'Authorization: Bearer ${{ secrets.WF }}' \
-#          -H 'Accept: application/vnd.github.v3+json' \
-#          -d '{
-#            "ref": "main",
-#            "inputs": {
-#              "title": "Automated workflow failure issue for commit ${{ github.sha }}",
-#              "body": "This issue was automatically created by the GitHub Action workflow ** ${{ github.workflow }} **"
-#            }
-#          }' \
-#          "https://api.github.com/repos/${{ github.repository }}/actions/workflows/create-failure-issue.yml/dispatches"
+      - run: 'Running job one'
             
 

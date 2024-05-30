@@ -1,0 +1,9 @@
+name: External
+
+on:
+  workflow_run:
+    workflows: [Main]
+    types: [completed]
+    branches:
+      - 'rel/**'
+      - '!rel/**-preprod'
