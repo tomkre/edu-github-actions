@@ -15,6 +15,6 @@ jobs:
         run: |
           echo 'Starting job and sleep for few seconds'
           sleep 10
-          echo 'Finishing job'
+          echo 'Finishing job2'
             
 
