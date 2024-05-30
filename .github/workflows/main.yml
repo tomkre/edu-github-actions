@@ -9,7 +9,7 @@ jobs:
   job_one:
     runs-on: ubuntu-latest
     concurrency:
-      group: ${{ github.head_ref }}
+      group: ${{ github.head_ref || github.ref }}
       cancel-in-progress: true
     steps:
       - name: step_one
