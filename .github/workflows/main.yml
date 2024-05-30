@@ -10,6 +10,7 @@ jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-      - run: 'Running job one in main workflow'
+      - name: First step
+        run: echo 'Running job one in main workflow'
             
 

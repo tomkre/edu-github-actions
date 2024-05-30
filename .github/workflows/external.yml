@@ -13,4 +13,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: First step
-        run: ls
+        run: echo 'running first step in external workflow'
