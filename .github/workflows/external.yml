@@ -12,4 +12,6 @@ jobs:
   one:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'Running job one in external  workflow'
+      - name: First step
+        run: |
+          echo 'Running job one in external workflow'
