@@ -9,6 +9,9 @@ on:
       be:
         type: string
         required: true
+    outputs:
+      result:
+        value: ${{ jobs.build_project.outputs.result }}
 
 jobs:
   build_project:
