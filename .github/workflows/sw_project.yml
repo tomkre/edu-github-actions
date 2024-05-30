@@ -1,0 +1,20 @@
+name: SW Project
+
+on:
+  workflow_call:
+    inputs:
+      fe:
+        type: string
+        required: true
+      be:
+        type: string
+        required: true
+
+jobs:
+  build_project:
+    runs-on: ubuntu-latest
+    outputs:
+      result: 'BE: ${{ inputs.be }}, FE: ${{ inputs.fe }}'
+    steps:
+      - name: Build project
+        run: echo 'Building project using ${{ inputs.be }} on BE and ${{ inputs.fe }} on FE'
