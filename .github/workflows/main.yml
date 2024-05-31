@@ -9,6 +9,8 @@ jobs:
     steps:
       - run: echo Intro
   create-new-issue:
+    permissions:
+      issues: write
     strategy:
       matrix:
         prod: [pro1, prod2]
