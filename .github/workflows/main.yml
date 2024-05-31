@@ -13,7 +13,7 @@ jobs:
       matrix:
         prod: [pro1, prod2]
         level: [dev, prod]
-    uses: rndrepos/common/.github/workflows/create-repo-issue3.yml@v1
+    uses: rndrepos/common/.github/workflows/create-repo-issue3.yml@main
     secrets: inherit
     with:
       title: "${{ matrix.prod }} issue"
