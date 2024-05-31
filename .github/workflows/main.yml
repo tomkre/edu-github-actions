@@ -18,8 +18,7 @@ jobs:
         prod: [pro1, prod2]
         level: [dev, prod]
     uses: rndrepos/common/.github/workflows/create-repo-issue3.yml@main
-    secrets:
-      PAT: ${{ secrets.PAT }}
+    secrets: inherit
     with:
       title: "${{ matrix.prod }} issue"
       body: "Update for ${{ matrix.level }}"
