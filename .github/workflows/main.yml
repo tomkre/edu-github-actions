@@ -4,42 +4,15 @@ on:
   push:
 
 jobs:
-  intro:
-    runs-on: ubuntu-latest
-    steps:
-      - run: |
-          echo "PAT Secret: ${{ secrets.PAT || 'def' }}"
-#  create-issue:
-#    runs-on: ubuntu-latest
-#    permissions:
-#      issues: write
-#    steps:
-#      - name: Create issue using REST API
-#        id: new-issue
-#        run: |
-#          curl --request POST \
-#          --url https://api.github.com/repos/${{ github.repository }}/issues \
-#          --header 'authorization: Bearer ${{ secrets.PAT }}' \
-#          --header 'content-type: application/json' \
-#          --data '{
-#            "title": "Dummy issue",
-#            "body": "Issue desc"
-#            }' \
-#          --fail
-
   create-new-issue:
     permissions:
       issues: write
-    strategy:
-      matrix:
-        prod: [pro1, prod2]
-        level: [dev, prod]
-    uses: rndrepos/common/.github/workflows/create-repo-issue3.yml@main
-    secrets:
-      PAT: ${{ secrets.PAT }}
+    uses: ./.github/workflows/create-repo-issue3.yml@main
+#    secrets:
+#      PAT: ${{ secrets.PAT }}
     with:
-      title: "${{ matrix.prod }} issue"
-      body: "Update for ${{ matrix.level }}"
+      title: "issue ${{ github.sha }}"
+      body: "Issue body"
   report-issue-number:
     runs-on: ubuntu-latest
     needs: create-new-issue
