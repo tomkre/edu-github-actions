@@ -7,7 +7,7 @@ jobs:
   intro:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Intro
+      - run: echo Intro2
   create-new-issue:
     permissions:
       issues: write
