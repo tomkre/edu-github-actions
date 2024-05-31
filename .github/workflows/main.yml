@@ -4,6 +4,10 @@ on:
   push:
 
 jobs:
+  intro:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo Intro
   create-new-issue:
     strategy:
       matrix:
