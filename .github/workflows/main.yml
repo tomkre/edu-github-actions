@@ -9,7 +9,7 @@ jobs:
     if: github.ref == 'refs/heads/main'
     steps:
       - name: job-one-step-one
-        run: exit 1
+        run: exit 0
       - name: job-one-step-two
         if: failure()
         run: echo 'running job-one-step-two'
