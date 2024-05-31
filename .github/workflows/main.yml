@@ -6,10 +6,17 @@ on:
 jobs:
   job_one:
     runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main'
     steps:
-      - name: Dump GitHub context
-        id: github_context_step
-        run: echo '${{ toJSON(github) }}'
-      - name: Dump GitHub context
-        id: github_steps_step
-        run: echo '${{ toJSON(steps) }}'
+      - name: check-os
+        if: runner.os != 'Windows'
+        run: echo "The runner's operation system is $RUNNER_OS."
+      - name: check-os
+        if: runner.os == 'Windows'
+        run: echo "The runner's operation system is WINDOWS"
+  job_two:
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/feat/one'
+    steps:
+      - name: feat-one job
+        run: echo 'Running job for feat/one branch'
