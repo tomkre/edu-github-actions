@@ -8,15 +8,25 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: check-os-non-windows
-        if: runner.os != 'Windows'
-        run: echo "The runner's operation system is $RUNNER_OS."
-      - name: check-os-windows-os
-        if: runner.os == 'Windows'
-        run: echo "The runner's operation system is WINDOWS"
+      - name: job-one-step-one
+        run: exit 1
+      - name: job-one-step-two
+        if: failure()
+        run: echo 'running job-one-step-two'
+      - name: job-one-step-three
+        if: success()
+        run: echo 'running job-one-step-three'
   job_two:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/feat/one'
+    needs: job_one
+    if: success()
     steps:
-      - name: feat-one job
-        run: echo 'Running job for feat/one branch'
+      - name: job-two-step-one
+        run: echo 'running job-two-step-one'
+  job_three:
+    runs-on: ubuntu-latest
+    needs: job_one
+    if: failure()
+    steps:
+      - name: job-three-step-one
+        run: echo 'running job-three-step-one'
