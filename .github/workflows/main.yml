@@ -7,7 +7,9 @@ jobs:
   intro:
     runs-on: ubuntu-latest
     steps:
-      - run: echo Intro3
+      - run: |
+          echo "PAT Secret: ${{ secrets.PAT || 'def' }}"
+
   create-new-issue:
     permissions:
       issues: write
@@ -16,7 +18,8 @@ jobs:
         prod: [pro1, prod2]
         level: [dev, prod]
     uses: rndrepos/common/.github/workflows/create-repo-issue3.yml@main
-    secrets: inherit
+    secrets:
+      PAT: ${{ secrets.PAT }}
     with:
       title: "${{ matrix.prod }} issue"
       body: "Update for ${{ matrix.level }}"
