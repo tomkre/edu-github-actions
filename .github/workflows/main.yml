@@ -8,10 +8,10 @@ jobs:
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     steps:
-      - name: check-os
+      - name: check-os-non-windows
         if: runner.os != 'Windows'
         run: echo "The runner's operation system is $RUNNER_OS."
-      - name: check-os
+      - name: check-os-windows-os
         if: runner.os == 'Windows'
         run: echo "The runner's operation system is WINDOWS"
   job_two:
