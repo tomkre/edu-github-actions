@@ -8,8 +8,7 @@ jobs:
     permissions:
       issues: write
     uses: ./.github/workflows/create-repo-issue3.yml
-#    secrets:
-#      PAT_EXT: ${{ secrets.PAT }}
+    secrets: inherit
     with:
       title: "issue ${{ github.sha }}"
       body: "Issue body"
