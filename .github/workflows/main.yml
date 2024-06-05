@@ -1,14 +1,26 @@
 name: Main
 
 on:
-  push:
+  workflow_dispatch:
+    inputs:
+      author:
+        description: Author of the repository
+        required: true
 
 jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - run: |
-          ls
-          -l
-          -h
+      - name: Check out the repository
+        uses: actions/checout@v4
+      - name: Make local changes
+        run: |
+          echo 'tkr' > author.txt
+          git config --local user.name 'tkr-remote'
+          git config --local user.email 'tkr-remote@example.com'
+          git add author.txt
+          git commit -m 'Adding author.txt'
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+#        with:
+#          github_token: ${{ secret.GITHUB_TOKEN }}
