@@ -12,7 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out the repository
-        uses: actions/checout@v4
+        uses: actions/checkout@v4
       - name: Make local changes
         run: |
           echo 'tkr' > author.txt
