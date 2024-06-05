@@ -10,7 +10,7 @@ jobs:
       - name: Check out the repository
         uses: actions/checkout@v4
       - name: Create Release
-        uses: actions/create-release@v1
+        uses: actions/create-release@v1.1.4
         env:
           GITHUB_TOKEN: ${{ github.token }}
         with:
