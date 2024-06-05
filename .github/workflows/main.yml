@@ -6,27 +6,9 @@ on:
 jobs:
   job_one:
     runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
     steps:
-      - name: job-one-step-one
-        run: exit 0
-      - name: job-one-step-two
-        if: failure()
-        run: echo 'running job-one-step-two'
-      - name: job-one-step-three
-        if: success()
-        run: echo 'running job-one-step-three'
-  job_two:
-    runs-on: ubuntu-latest
-    needs: job_one
-    if: success()
-    steps:
-      - name: job-two-step-one
-        run: echo 'running job-two-step-one'
-  job_three:
-    runs-on: ubuntu-latest
-    needs: job_one
-    if: always() && failure()
-    steps:
-      - name: job-three-step-one
-        run: echo 'running job-three-step-one'
+      - uses: actions/checkout@v4
+      - run: >
+          ls
+          -l
+          -h
