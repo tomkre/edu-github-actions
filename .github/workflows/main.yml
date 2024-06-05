@@ -1,28 +1,25 @@
 name: Main
 
 on:
-  workflow_dispatch:
-    inputs:
-      author:
-        description: Author of the repository
-        required: true
+  push:
 
 jobs:
   job_one:
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - name: Check out the repository
         uses: actions/checkout@v4
-      - name: Make local changes
-        run: |
-          echo '${{ inputs.author }}' > author.txt
-          git config --local user.name 'tkr-remote'
-          git config --local user.email 'tkr-remote@example.com'
-          git add author.txt
-          git commit -m 'Adding author.txt'
-      - name: Push changes
-        uses: ad-m/github-push-action@master
+      - name: Create Release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN ${{ github.token }}
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          tag_name: ${{ github.ref }}-1
+          release_name: Release ${{ github.ref}}-1
+          body: |
+            Changes in this Release
+            - First Change
+            - Second change
+          draft: false
+          prerelease: false
+
