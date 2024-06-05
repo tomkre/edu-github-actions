@@ -22,5 +22,5 @@ jobs:
           git commit -m 'Adding author.txt'
       - name: Push changes
         uses: ad-m/github-push-action@master
-#        with:
-#          github_token: ${{ secret.GITHUB_TOKEN }}
+        with:
+          github_token: ${{ secret.GITHUB_TOKEN }}
