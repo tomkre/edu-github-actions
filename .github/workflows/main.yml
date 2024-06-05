@@ -17,7 +17,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Make local changes
         run: |
-          echo 'tkr' > author.txt
+          echo '${{ inputs.author }}' > author.txt
           git config --local user.name 'tkr-remote'
           git config --local user.email 'tkr-remote@example.com'
           git add author.txt
