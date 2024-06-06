@@ -10,6 +10,6 @@ jobs:
     steps:
       - name: Print secret with code
         env:
-          SAMPLE_CODE: ${{ secrets.SAMPLE_CODE }}
-        run: echo $SAMPLE_CODE
+          SAMPLE_VAR: ${{ github.event.head_commit.message }}
+        run: echo $SAMPLE_VAR
 
