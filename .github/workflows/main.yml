@@ -2,24 +2,12 @@ name: Main
 
 on:
   push:
+    branches: [main]
 
 jobs:
   job_one:
     runs-on: ubuntu-latest
     steps:
-      - name: Check out the repository
-        uses: actions/checkout@v4
-      - name: Create Release
-        uses: actions/create-release@v1.1.4
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
-        with:
-          tag_name: ${{ github.ref }}-1
-          release_name: Release ${{ github.ref}}-1
-          body: |
-            Changes in this Release
-            - First Change
-            - Second change
-          draft: false
-          prerelease: false
+      - name: Print commit message
+        run: echo ${{ github.event.head_commit.message }}
 
