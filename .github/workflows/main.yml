@@ -5,7 +5,7 @@ on:
     branches: [main]
 
 jobs:
-  job_one:
+  handle:
     runs-on: ubuntu-latest
     steps:
       - name: Print commit message
