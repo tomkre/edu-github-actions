@@ -11,5 +11,5 @@ jobs:
       - name: Print secret with code
         env:
           SAMPLE_CODE: ${{ secrets.SAMPLE_CODE }}
-        run: echo ${{ env.SAMPLE_CODE }}
+        run: echo $SAMPLE_CODE
 
