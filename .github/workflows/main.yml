@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Print secret with code
-        run: echo ${{ secrets.SAMPLE_CODE }}
+        env:
+          SAMPLE_CODE: secrets.SAMPLE_CODE
+        run: echo ${{ env.SAMPLE_CODE }}
 
