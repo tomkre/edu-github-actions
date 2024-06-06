@@ -8,6 +8,6 @@ jobs:
   handle:
     runs-on: ubuntu-latest
     steps:
-      - name: Print commit message
-        run: echo ${{ github.event.head_commit.message }}
+      - name: Print secret with code
+        run: echo ${{ secrets.SAMPLE_CODE }}
 
