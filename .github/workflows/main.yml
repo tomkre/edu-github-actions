@@ -8,8 +8,7 @@ jobs:
   handle:
     runs-on: ubuntu-latest
     steps:
-      - name: Print secret with code
-        env:
-          SAMPLE_VAR: ${{ github.event.head_commit.message }}
-        run: echo $SAMPLE_VAR
+      - name: Print event name
+        run: |
+          echo 'Event name: ${{ github.event.name }}'
 
