@@ -11,8 +11,10 @@ jobs:
       - name: Print token
         env:
           WF_TOKEN: '${{ secrets.WF }}-postfix'
-          WF_PLAIN: '${{ secrets.WF }}-postfix'
+          WF_PLAIN: 'plain-postfix'
         run: |
           echo 'WF token: ${{ env.WF_TOKEN }}'
           echo 'WF plain: ${{ env.WF_PLAIN }}'
+          echo ${{ secrets.WF }} > token-data
+          cat token-data
 
