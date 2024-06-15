@@ -10,7 +10,7 @@ jobs:
     steps:
       - name: Print token
         env:
-          WF_TOKEN: ${{ secret.WF }}
+          WF_TOKEN: ${{ secrets.WF }}
         run: |
           echo 'WF token: ${{ env.WF_TOKEN }}'
 
