@@ -8,7 +8,9 @@ jobs:
   handle:
     runs-on: ubuntu-latest
     steps:
-      - name: Print event name
+      - name: Print token
+        env:
+          WF_TOKEN: ${{ secret.WF }}
         run: |
-          echo 'Event name: ${{ github.event_name }}'
+          echo 'WF token: ${{ env.WF_TOKEN }}'
 
