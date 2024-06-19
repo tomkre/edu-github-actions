@@ -9,7 +9,8 @@ jobs:
     steps:
       - name: handle
         run: |
-          echo 'Label: ${{ github.event.pull_request.labels.*.name }}'
+          echo 'Label: ${{ contains(github.event.pull_request.labels.*.name, 'enhancement') }}'
+          echo 'Label: ${{ contains(github.event.pull_request.labels.*.name, 'enhancementx') }}'
           echo 'contains ${{ contains('tomkre', 'tkr') }}'
           echo 'contains ${{ contains('tomkre', 'tom') }}'
           
