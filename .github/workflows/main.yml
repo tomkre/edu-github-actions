@@ -10,5 +10,6 @@ jobs:
       - name: handle
         run: |
           echo 'Label: ${{ github.event.pull_request.labels.perm }}'
+          echo 'contains ${{ contains('tomkre', 'tkr') }}'
           echo 'contains ${{ contains('tomkre', 'tom') }}'
           
