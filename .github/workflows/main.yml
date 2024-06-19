@@ -1,7 +1,7 @@
 name: main
 
 on:
-  push:
+  pull_request:
 
 jobs:
   handle:
@@ -9,6 +9,6 @@ jobs:
     steps:
       - name: handle
         run: |
-          sleep 3
-          echo 'Main handle'
+          echo 'Label: ${{ github.event.pull_request.labels.perm }}'
+          echo 'contains ${{ contains('tomkre', 'tom') }}'
           
