@@ -1,20 +1,14 @@
-name: Main
+name: main
 
 on:
   push:
-    branches: [main]
 
 jobs:
   handle:
     runs-on: ubuntu-latest
     steps:
-      - name: Print token
-        env:
-          WF_TOKEN: '${{ secrets.WF }}-postfix'
-          WF_PLAIN: 'plain-postfix'
+      - name: handle
         run: |
-          echo 'WF token: ${{ env.WF_TOKEN }}'
-          echo 'WF plain: ${{ env.WF_PLAIN }}'
-          echo ${{ secrets.WF }} > token-data
-          cat token-data
-
+          sleep 3
+          echo 'Main handle'
+          
