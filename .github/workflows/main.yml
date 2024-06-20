@@ -10,4 +10,12 @@ jobs:
       - name: step_one
         run: |
           echo 'Running step_one'
+          exit 0
+  job_two:
+    runs-on: ubuntu-latest
+    steps:
+      - name: step_one
+        run: |
+          echo 'Running step_one'
+          exit 1
           
