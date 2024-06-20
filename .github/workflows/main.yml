@@ -1,14 +1,13 @@
 name: main
 
 on:
-  pull_request:
+  push:
 
 jobs:
-  handle:
+  handle_job:
     runs-on: ubuntu-latest
     steps:
-      - name: handle
+      - name: handle_step
         run: |
-          echo 'Label: ${{ github.event.pull_request.labels.perm }}'
-          echo 'contains ${{ contains('tomkre', 'tom') }}'
+          echo 'Running step...'
           
