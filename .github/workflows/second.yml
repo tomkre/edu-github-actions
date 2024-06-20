@@ -9,5 +9,5 @@ jobs:
     steps:
       - name: step_one
         run: |
-          echo 'Running step_one in second workflow'
+          exit 1
           
