@@ -13,6 +13,7 @@ jobs:
           exit 0
   job_two:
     runs-on: ubuntu-latest
+    needs: [job_one]
     steps:
       - name: step_one
         run: |
